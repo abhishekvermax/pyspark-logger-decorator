@@ -1,6 +1,7 @@
 import logging
 import logging.config
 import os
+from pathlib import Path
 import tempfile
 from logging import *  # gives access to logging.DEBUG etc by aliasing this module for the standard logging module
 import urllib.request
@@ -10,7 +11,13 @@ from pyspark.sql import SparkSession,DataFrame
 import inspect
 from functools import wraps
 
-os.environ['LOG_DIRS'] = "/home/abhi/projects/github/pyspark-logger-decorator/src/test/tmp/"
+
+LOGS_DIR = str(Path(__file__).parent.parent) + '/logs/'
+
+if not os.path.exists(LOGS_DIR):
+    os.makedirs(LOGS_DIR)
+    
+os.environ['LOG_DIRS'] = LOGS_DIR
 
 
 class Unique(logging.Filter):

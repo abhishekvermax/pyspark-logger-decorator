@@ -4,15 +4,12 @@ from src.main.spark_job import create_df, df_analysis
 from test.samplesparksession import SampleSparkSession
 from pyspark.sql import DataFrame
 import os
-
-
-import os
 import sys
 
 os.environ["PYSPARK_PYTHON"] = sys.executable
 os.environ["PYSPARK_DRIVER_PYTHON"] = sys.executable
 
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 spark = SampleSparkSession().new_spark_session()
 
 
