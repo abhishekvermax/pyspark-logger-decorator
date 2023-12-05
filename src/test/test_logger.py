@@ -16,7 +16,7 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 spark = SampleSparkSession().new_spark_session()
 
 
-class Test_HR_view(unittest.TestCase):      
+class Test_Spark_Job_Logging(unittest.TestCase):      
 
     
     def test_create_df(self):
